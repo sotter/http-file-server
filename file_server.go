@@ -65,7 +65,7 @@ func (this *HttpFileServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	relative_path := r.URL.Path
 	log.Println("relative_path - 0:", relative_path)
 
-	relative_path = strings.TrimSuffix(relative_path, this.UrlPath)
+	//relative_path = strings.TrimSuffix(relative_path, this.UrlPath)
 
 	log.Println("relative_path:", relative_path)
 	handler := http.FileServer(http.Dir(this.LocalRootPath))
