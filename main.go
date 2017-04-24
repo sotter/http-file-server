@@ -34,4 +34,8 @@ func main() {
 	go file_server.Start()
 
 	StartWebServer()
+
+	select {
+	
+	}
 }
