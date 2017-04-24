@@ -10,6 +10,7 @@ func main() {
 		ServerPort int
 		ReportUrl  string
 		RootPath   string
+		UrlPath    string
 	}
 
 	_, err := toml.DecodeFile("http_file_server.toml", &config)
@@ -25,7 +26,7 @@ func main() {
 	}
 
 	file_server := HttpFileServer{
-		UrlPath:       "/",
+		UrlPath:       config.UrlPath,
 		LocalRootPath: config.RootPath,
 		Port:          config.ServerPort,
 		ReportUrl:     "http://127.0.0.1:38000/reportserver",
@@ -36,6 +37,6 @@ func main() {
 	StartWebServer()
 
 	select {
-	
+
 	}
 }
