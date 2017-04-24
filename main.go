@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"github.com/BurntSushi/toml"
 )
 
 func main() {
@@ -9,6 +10,12 @@ func main() {
 		ServerPort int
 		ReportUrl  string
 		RootPath   string
+	}
+
+	_, err := toml.DecodeFile("http_file_server.toml", &config)
+	if err != nil {
+		log.Println("Decode Config fail : ", err.Error())
+		return
 	}
 
 	//首先判断RootPath是否存在，如果不存在，直接退出：
